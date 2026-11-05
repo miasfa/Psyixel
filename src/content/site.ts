@@ -47,6 +47,12 @@ export const site = {
 
   /** Public contact address (Contact fallback, footer). Leave empty to hide it. */
   email: "hello@psyixel.com",
+  /**
+   * Web3Forms access key: the contact form delivers messages through Web3Forms
+   * to the owner's inbox. Public by design (it only allows sending to that
+   * inbox), so it can live here. NEXT_PUBLIC_WEB3FORMS_KEY overrides it.
+   */
+  web3formsKey: "c11d8fbc-47d8-4158-9d2c-14cf9a92a2ba",
   /** Profiles shown on Contact (with icons) and in the footer. */
   socials: [
     { label: "Instagram", handle: "@psyixel", icon: "instagram", href: "https://www.instagram.com/psyixel/" },

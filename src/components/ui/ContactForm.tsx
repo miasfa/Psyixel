@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
+import { site } from "@/content/site";
 
 export const TOPICS = [
   { value: "project", label: "A project" },
@@ -21,7 +22,7 @@ type Status =
  * Web3Forms, which emails them to the owner; otherwise the form uses /api/contact.
  * The key is public by design (it only allows submitting to that inbox).
  */
-const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
+const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || site.web3formsKey;
 
 const field =
   "w-full border-0 border-b border-[var(--line-strong)] bg-transparent px-0 py-3 font-read text-xl text-ivory placeholder:text-dust focus:border-lav focus:outline-none focus:ring-0";
