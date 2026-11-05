@@ -113,7 +113,7 @@ export function MusicHero() {
   return (
     <section aria-labelledby="music-title" className="gutter relative overflow-hidden pb-16 pt-24 md:h-[63.4vw] md:min-h-[620px] md:px-0 md:pb-0 md:pt-0">
       {/* record, cut by the right edge */}
-      <div className="pointer-events-none relative ml-[30%] w-[100vw] md:absolute md:left-[63.2vw] md:top-[-6.9vw] md:ml-0 md:w-[69.2vw]">
+      <div className="pointer-events-none relative left-[52%] w-[100vw] md:absolute md:left-[63.2vw] md:top-[-6.9vw] md:ml-0 md:w-[69.2vw]">
         <div data-reveal="scale" data-start="top bottom" data-delay="0.15">
           <Vinyl spinning={playing} />
         </div>

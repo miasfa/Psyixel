@@ -51,7 +51,7 @@ export default async function ArtPage() {
         </p>
 
         {/* year mark */}
-        <div data-reveal="fade" data-start="top bottom" aria-hidden="true" className="t-label absolute right-[var(--gutter)] top-28 flex flex-col items-center text-base leading-tight text-ivory/85 md:left-[93.7vw] md:right-auto md:top-[35.2vw] md:text-[1.45vw]">
+        <div data-reveal="fade" data-start="top bottom" aria-hidden="true" className="t-label absolute right-[var(--gutter)] top-28 hidden flex-col items-center md:flex text-base leading-tight text-ivory/85 md:left-[93.7vw] md:right-auto md:top-[35.2vw] md:text-[1.45vw]">
           <span>{year.slice(0, 2)}</span>
           <span className="my-[0.35em] h-[2px] w-[1.6em] bg-ivory/80" />
           <span>{year.slice(2)}</span>

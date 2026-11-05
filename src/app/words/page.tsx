@@ -50,7 +50,7 @@ export default async function WordsPage() {
           </div>
         </div>
 
-        <h1 id="words-title" className="relative z-10 -mt-[44vw] md:absolute md:left-[5.6vw] md:top-[9.9vw] md:mt-0">
+        <h1 id="words-title" className="relative z-10 mt-6 md:absolute md:left-[5.6vw] md:top-[9.9vw] md:mt-0">
           <SplitText as="span" className="t-serif block text-[24vw] font-[600] uppercase leading-[0.86] tracking-[-0.075em] text-ivory [font-variation-settings:'opsz'_14] md:text-[12.6vw]" lines={["Words"]} />
         </h1>
 

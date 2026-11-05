@@ -148,7 +148,7 @@ export function HeroClient({ assets, portrait, alts }: { assets: HeroAssets; por
   // Traced SVG wordmark (src/components/art/Wordmark.tsx). Desktop placement is
   // the traced box's position in the 977px reference: x 10, y 38, w 880.
   const wordmark = (layer: "back" | "front") => {
-    const box = `pointer-events-none absolute left-[-15%] top-[19vw] w-[114%] md:left-[1.02%] md:top-[3.89vw] md:w-[90.07%] ${layer === "back" ? "z-10" : "z-[24]"}`;
+    const box = `pointer-events-none absolute left-[3%] top-[21vw] w-[94%] md:left-[1.02%] md:top-[3.89vw] md:w-[90.07%] ${layer === "back" ? "z-10" : "z-[24]"}`;
     return layer === "back" ? (
       <h1 id="hero-title" className={box}>
         <span className="sr-only">Psyixel — {site.tagline}</span>
@@ -216,7 +216,8 @@ export function HeroClient({ assets, portrait, alts }: { assets: HeroAssets; por
         </div>
       </div>
 
-      <div data-scroll="iris" className={`${PLACED} z-30`} style={placementVars(slots.iris.mobile, slots.iris.desktop)}>
+      {/* the iris file has a flat bottom edge (hidden by the torn rule on desktop); on phones it fades out instead */}
+      <div data-scroll="iris" className={`${PLACED} z-30 max-md:[mask-image:linear-gradient(to_bottom,#000_62%,transparent_96%)] max-md:[-webkit-mask-image:linear-gradient(to_bottom,#000_62%,transparent_96%)]`} style={placementVars(slots.iris.mobile, slots.iris.desktop)}>
         <div data-depth="1.6">
           <div data-piece>
             <CollageCutout asset={assets.iris} alt={alts.iris} sizes="(max-width: 768px) 74vw, 36vw" fallback={<FlowerCut className="w-full drop-shadow-[0_30px_40px_rgba(0,0,0,0.65)]" rotate={-22} />} />
