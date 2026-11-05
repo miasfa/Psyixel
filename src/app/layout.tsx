@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
 import { Anton, Archivo_Black, Barlow_Condensed, Bodoni_Moda, Inter, Newsreader, Space_Mono } from "next/font/google";
 import { SvgDefs } from "@/components/art/SvgDefs";
@@ -76,6 +77,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <div className="paper" aria-hidden="true" />
         <div className="vignette" aria-hidden="true" />
         <div className="grain" aria-hidden="true" />
+        <Analytics />
       </body>
     </html>
   );
