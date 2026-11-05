@@ -1,0 +1,549 @@
+{
+  "$comment": "Image slots. 'frame' is the aspect ratio the layout reserves (taken from the current placeholder) — replacements are fitted into it, so the composition never moves. 'target' is the recommended delivery size. Import with: npm run asset -- <slot> <file>",
+  "slots": [
+    {
+      "slot": "portrait",
+      "kind": "collage",
+      "path": "public/images/collage/portrait",
+      "frame": [
+        1086,
+        1448
+      ],
+      "target": [
+        2400,
+        3200
+      ],
+      "alpha": true,
+      "priority": 1,
+      "usedIn": "Hero figure over the wordmark"
+    },
+    {
+      "slot": "iris",
+      "kind": "collage",
+      "path": "public/images/collage/iris",
+      "frame": [
+        690,
+        396
+      ],
+      "target": [
+        2400,
+        1377
+      ],
+      "alpha": true,
+      "priority": 1,
+      "usedIn": "Hero iris, cut by the hero's bottom edge"
+    },
+    {
+      "slot": "eye",
+      "kind": "collage",
+      "path": "public/images/collage/eye",
+      "frame": [
+        324,
+        396
+      ],
+      "target": [
+        1200,
+        1467
+      ],
+      "alpha": true,
+      "priority": 1,
+      "usedIn": "Hero, top right, over the last letter"
+    },
+    {
+      "slot": "moon",
+      "kind": "collage",
+      "path": "public/images/collage/moon",
+      "frame": [
+        360,
+        388
+      ],
+      "target": [
+        1200,
+        1293
+      ],
+      "alpha": true,
+      "priority": 1,
+      "usedIn": "Hero, left edge"
+    },
+    {
+      "slot": "about-collage",
+      "kind": "collage",
+      "path": "public/images/collage/about-collage",
+      "frame": [
+        596,
+        348
+      ],
+      "target": [
+        2000,
+        1168
+      ],
+      "alpha": true,
+      "priority": 1,
+      "usedIn": "03 About, left (marble bust collage)"
+    },
+    {
+      "slot": "the-second-nature",
+      "kind": "work",
+      "path": "public/images/works/the-second-nature.webp",
+      "frame": [
+        290,
+        228
+      ],
+      "target": [
+        1600,
+        1260
+      ],
+      "alpha": false,
+      "priority": 1,
+      "usedIn": "Archive thumbnail; artwork page /art/the-second-nature"
+    },
+    {
+      "slot": "manifesto-collage",
+      "kind": "collage",
+      "path": "public/images/collage/manifesto-collage",
+      "frame": [
+        734,
+        436
+      ],
+      "target": [
+        2400,
+        1426
+      ],
+      "alpha": true,
+      "priority": 1,
+      "usedIn": "01 Manifesto, right (flower + horizon collage)"
+    },
+    {
+      "slot": "about-moon",
+      "kind": "collage",
+      "path": "public/images/collage/about-moon",
+      "frame": [
+        314,
+        280
+      ],
+      "target": [
+        1200,
+        1070
+      ],
+      "alpha": true,
+      "priority": 2,
+      "usedIn": "03 About, right (moon with orbit rings)"
+    },
+    {
+      "slot": "rock",
+      "kind": "collage",
+      "path": "public/images/collage/rock",
+      "frame": [
+        238,
+        324
+      ],
+      "target": [
+        900,
+        1225
+      ],
+      "alpha": true,
+      "priority": 2,
+      "usedIn": "Hero, right edge"
+    },
+    {
+      "slot": "music-collage",
+      "kind": "collage",
+      "path": "public/images/collage/music-collage",
+      "frame": [
+        492,
+        256
+      ],
+      "target": [
+        1800,
+        937
+      ],
+      "alpha": true,
+      "priority": 2,
+      "usedIn": "Listen section, left (headphones collage)"
+    },
+    {
+      "slot": "red-moon-variations",
+      "kind": "work",
+      "path": "public/images/works/red-moon-variations.webp",
+      "frame": [
+        290,
+        228
+      ],
+      "target": [
+        1600,
+        1260
+      ],
+      "alpha": false,
+      "priority": 2,
+      "usedIn": "Archive thumbnail; player cover; /music track list"
+    },
+    {
+      "slot": "world-studio",
+      "kind": "work",
+      "path": "public/images/works/world-studio.webp",
+      "frame": [
+        370,
+        231
+      ],
+      "target": [
+        1600,
+        1000
+      ],
+      "alpha": false,
+      "priority": 2,
+      "usedIn": "Studio card image band"
+    },
+    {
+      "slot": "world-photography",
+      "kind": "work",
+      "path": "public/images/works/world-photography.webp",
+      "frame": [
+        370,
+        231
+      ],
+      "target": [
+        1600,
+        1000
+      ],
+      "alpha": false,
+      "priority": 2,
+      "usedIn": "Photography card image band"
+    },
+    {
+      "slot": "world-art",
+      "kind": "work",
+      "path": "public/images/works/world-art.webp",
+      "frame": [
+        370,
+        231
+      ],
+      "target": [
+        1600,
+        1000
+      ],
+      "alpha": false,
+      "priority": 2,
+      "usedIn": "Art card image band"
+    },
+    {
+      "slot": "world-words",
+      "kind": "work",
+      "path": "public/images/works/world-words.webp",
+      "frame": [
+        370,
+        231
+      ],
+      "target": [
+        1600,
+        1000
+      ],
+      "alpha": false,
+      "priority": 2,
+      "usedIn": "Words card image band"
+    },
+    {
+      "slot": "world-music",
+      "kind": "work",
+      "path": "public/images/works/world-music.webp",
+      "frame": [
+        370,
+        231
+      ],
+      "target": [
+        1600,
+        1000
+      ],
+      "alpha": false,
+      "priority": 2,
+      "usedIn": "Music card image band"
+    },
+    {
+      "slot": "a-quiet-exit",
+      "kind": "work",
+      "path": "public/images/works/a-quiet-exit.webp",
+      "frame": [
+        290,
+        228
+      ],
+      "target": [
+        1600,
+        1260
+      ],
+      "alpha": false,
+      "priority": 3,
+      "usedIn": "Archive thumbnail"
+    },
+    {
+      "slot": "fragments-vol-1",
+      "kind": "work",
+      "path": "public/images/works/fragments-vol-1.webp",
+      "frame": [
+        290,
+        228
+      ],
+      "target": [
+        1600,
+        1260
+      ],
+      "alpha": false,
+      "priority": 3,
+      "usedIn": "Archive thumbnail; /music track list"
+    },
+    {
+      "slot": "contact-rock",
+      "kind": "collage",
+      "path": "public/images/collage/contact-rock",
+      "frame": [
+        324,
+        288
+      ],
+      "target": [
+        1200,
+        1067
+      ],
+      "alpha": true,
+      "priority": 3,
+      "usedIn": "04 Get in touch, right edge"
+    },
+    {
+      "slot": "studio-hero-collage",
+      "kind": "collage",
+      "path": "public/images/collage/studio-hero-collage",
+      "frame": [
+        1840,
+        1096
+      ],
+      "target": [
+        2760,
+        1644
+      ],
+      "alpha": true,
+      "priority": 2,
+      "usedIn": "/studio hero: paper/fabric form + lavender brush"
+    },
+    {
+      "slot": "studio-print",
+      "kind": "collage",
+      "path": "public/images/collage/studio-print",
+      "frame": [
+        760,
+        512
+      ],
+      "target": [
+        2100,
+        1415
+      ],
+      "alpha": false,
+      "priority": 2,
+      "usedIn": "Not in use (was the /studio hero framed print)"
+    },
+    {
+      "slot": "studio-paper",
+      "kind": "collage",
+      "path": "public/images/collage/studio-paper",
+      "frame": [
+        940,
+        980
+      ],
+      "target": [
+        1500,
+        1564
+      ],
+      "alpha": false,
+      "priority": 3,
+      "usedIn": "Not in use (was the Paper Studies sample project tile)"
+    },
+    {
+      "slot": "photo-feature",
+      "kind": "collage",
+      "path": "public/images/collage/photo-feature",
+      "frame": [
+        1232,
+        1230
+      ],
+      "target": [
+        2400,
+        2396
+      ],
+      "alpha": false,
+      "priority": 2,
+      "usedIn": "/photography hero feature + The In-Between"
+    },
+    {
+      "slot": "photo-moon",
+      "kind": "collage",
+      "path": "public/images/collage/photo-moon",
+      "frame": [
+        398,
+        524
+      ],
+      "target": [
+        1600,
+        2107
+      ],
+      "alpha": false,
+      "priority": 2,
+      "usedIn": "/photography: Celestial Notes"
+    },
+    {
+      "slot": "photo-coast",
+      "kind": "collage",
+      "path": "public/images/collage/photo-coast",
+      "frame": [
+        398,
+        524
+      ],
+      "target": [
+        1600,
+        2107
+      ],
+      "alpha": false,
+      "priority": 2,
+      "usedIn": "/photography: Somewhere Else"
+    },
+    {
+      "slot": "photo-tree",
+      "kind": "collage",
+      "path": "public/images/collage/photo-tree",
+      "frame": [
+        390,
+        524
+      ],
+      "target": [
+        1600,
+        2150
+      ],
+      "alpha": false,
+      "priority": 2,
+      "usedIn": "/photography: Somewhere Else"
+    },
+    {
+      "slot": "art-hero-brush",
+      "kind": "collage",
+      "path": "public/images/collage/art-hero-brush",
+      "frame": [
+        1840,
+        1016
+      ],
+      "target": [
+        2760,
+        1524
+      ],
+      "alpha": true,
+      "priority": 2,
+      "usedIn": "/art hero: lavender + ivory brush strokes"
+    },
+    {
+      "slot": "art-statue",
+      "kind": "collage",
+      "path": "public/images/collage/art-statue",
+      "frame": [
+        780,
+        480
+      ],
+      "target": [
+        2100,
+        1292
+      ],
+      "alpha": false,
+      "priority": 2,
+      "usedIn": "/art: Marble Study (sample artwork)"
+    },
+    {
+      "slot": "art-brush-study",
+      "kind": "collage",
+      "path": "public/images/collage/art-brush-study",
+      "frame": [
+        740,
+        480
+      ],
+      "target": [
+        1600,
+        1038
+      ],
+      "alpha": false,
+      "priority": 2,
+      "usedIn": "/art: Lavender Studies (sample artwork)"
+    },
+    {
+      "slot": "words-hero-collage",
+      "kind": "collage",
+      "path": "public/images/collage/words-hero-collage",
+      "frame": [
+        1700,
+        1570
+      ],
+      "target": [
+        2550,
+        2355
+      ],
+      "alpha": true,
+      "priority": 2,
+      "usedIn": "/words hero: torn handwritten page, flowers, rock"
+    },
+    {
+      "slot": "about-hero-collage",
+      "kind": "collage",
+      "path": "public/images/collage/about-hero-collage",
+      "frame": [
+        2024,
+        1460
+      ],
+      "target": [
+        3036,
+        2190
+      ],
+      "alpha": true,
+      "priority": 2,
+      "usedIn": "/about hero: marble head, clouds, lavender scraps"
+    },
+    {
+      "slot": "about-hero-moon",
+      "kind": "collage",
+      "path": "public/images/collage/about-hero-moon",
+      "frame": [
+        690,
+        584
+      ],
+      "target": [
+        1380,
+        1168
+      ],
+      "alpha": true,
+      "priority": 3,
+      "usedIn": "/about hero: moon with orbit"
+    },
+    {
+      "slot": "contact-horizon",
+      "kind": "collage",
+      "path": "public/images/collage/contact-horizon",
+      "frame": [
+        872,
+        690
+      ],
+      "target": [
+        1600,
+        1266
+      ],
+      "alpha": false,
+      "priority": 3,
+      "usedIn": "Not in use (Contact hero now shows the email and profile links)"
+    },
+    {
+      "slot": "contact-hero-rock",
+      "kind": "collage",
+      "path": "public/images/collage/contact-hero-rock",
+      "frame": [
+        804,
+        736
+      ],
+      "target": [
+        1400,
+        1282
+      ],
+      "alpha": true,
+      "priority": 3,
+      "usedIn": "/contact hero: rock fragment"
+    }
+  ]
+}

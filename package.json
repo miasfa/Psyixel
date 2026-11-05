@@ -1,0 +1,30 @@
+{
+  "name": "psyixel",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "audio:placeholder": "node scripts/make-placeholder-audio.mjs",
+    "asset": "node scripts/import-asset.mjs"
+  },
+  "dependencies": {
+    "gsap": "^3.15.0",
+    "lenis": "^1.3.27",
+    "next": "^16.4.4",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "sharp": "^0.35.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.4",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "potrace": "^2.1.8",
+    "tailwindcss": "^4.3.4",
+    "typescript": "^5.9.3"
+  }
+}

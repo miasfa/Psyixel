@@ -1,0 +1,56 @@
+import type { World } from "./types";
+
+export const worlds: World[] = [
+  {
+    key: "studio",
+    index: "01",
+    title: "Studio",
+    href: "/studio",
+    caption: "Websites, visual identities, and creative direction.",
+    thing: "Things I build.",
+    attention: "How an idea takes form and meets the people it’s meant for.",
+    // ?v= busts browser caches when a cover file is replaced in place — bump it on the next replacement.
+    cover: { src: "/images/works/world-studio.webp?v=3", mono: false, variant: "fabric", alt: "A folded ivory paper wave above a lavender brush stroke" },
+  },
+  {
+    key: "photography",
+    index: "02",
+    title: "Photography",
+    href: "/photography",
+    caption: "What caught my eye. What made me stay a little longer.",
+    thing: "Things I see.",
+    attention: "What I notice when I look a little longer.",
+    cover: { src: "/images/works/world-photography.webp?v=3", mono: false, variant: "figure", alt: "Railway tracks converging toward a city, in black and white" },
+  },
+  {
+    key: "art",
+    index: "03",
+    title: "Art",
+    href: "/art",
+    caption: "Ideas explored through image, colour, and texture.",
+    thing: "Things I imagine.",
+    attention: "What happens when I let an image change.",
+    cover: { src: "/images/works/world-art.webp?v=3", mono: false, variant: "paint", alt: "Thick lavender and ivory paint strokes" },
+  },
+  {
+    key: "words",
+    index: "04",
+    title: "Words",
+    href: "/words",
+    caption: "Essays, poems, and thoughts I wanted to spend more time with.",
+    thing: "Things I write.",
+    attention: "What becomes clearer when I try to say it.",
+    cover: { src: "/images/works/world-words.webp?v=3", mono: false, variant: "script", alt: "Handwritten page with pressed flower silhouettes" },
+    titleStyle: "serif",
+  },
+  {
+    key: "music",
+    index: "05",
+    title: "Music",
+    href: "/music",
+    caption: "Music I make, sounds I explore, and what I’m listening to.",
+    thing: "Music I make.",
+    attention: "What I find by listening and making sound.",
+    cover: { src: "/images/works/world-music.webp?v=3", mono: false, variant: "vinyl", alt: "Vinyl record with a lavender label" },
+  },
+];

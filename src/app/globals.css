@@ -1,0 +1,460 @@
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────────────────────
+   PSYIXEL design tokens
+   ───────────────────────────────────────────────────────────── */
+@theme {
+  --color-ink: #0c0b0d;
+  --color-coal: #141215;
+  --color-ash: #1d1a1f;
+  --color-ivory: #ece5d8;
+  --color-bone: #b9b1a3;
+  --color-dust: #948c80; /* muted labels; ≥5:1 on the page colour */
+  --color-lav: #ab92d9;
+  --color-lav-soft: #c9b6ec;
+  --color-lav-deep: #6c5596;
+  --color-ember: #b8492f;
+
+  /* Type roles */
+  --font-display: var(--font-anton), "Impact", sans-serif; /* PSYIXEL wordmark */
+  --font-heavy: var(--font-archivo-black), "Arial Black", sans-serif; /* section headings */
+  --font-serif: var(--font-bodoni), "Didot", "Bodoni 72", serif; /* italic editorial phrases */
+  --font-condensed: var(--font-barlow), "Arial Narrow", sans-serif; /* world cards */
+  --font-mono: var(--font-space-mono), ui-monospace, monospace; /* labels, captions */
+  --font-sans: var(--font-inter), system-ui, sans-serif; /* navigation, interface */
+  --font-read: var(--font-newsreader), Georgia, serif; /* long-form reading */
+
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-ink: cubic-bezier(0.7, 0, 0.2, 1);
+}
+
+:root {
+  --gutter: clamp(1rem, 3.2vw, 3rem);
+  --line: rgba(236, 229, 216, 0.16);
+  --line-strong: rgba(236, 229, 216, 0.32);
+  color-scheme: dark;
+}
+
+html {
+  background: var(--color-ink);
+  color: var(--color-ivory);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--color-ink);
+  font-family: var(--font-read);
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--color-lav);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 1.5px solid var(--color-lav);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* World-card titles (Barlow Condensed); sizes + horizontal fit come from the card */
+/* Homepage world cards: image band bottom, leaving room for the 11px caption where cards are narrow */
+.world-band { bottom: 23%; }
+@media (min-width: 1024px) and (max-width: 1100px) { .world-band { bottom: 42%; } }
+@media (min-width: 1101px) and (max-width: 1279px) { .world-band { bottom: 31%; } }
+@media (min-width: 1280px) and (max-width: 1400px) { .world-band { bottom: 25%; } }
+
+.world-title { font-size: 12vw; }
+@media (min-width: 640px) { .world-title { font-size: 6.6vw; } }
+@media (min-width: 1024px) { .world-title { font-size: var(--fs-lg); transform: scaleX(var(--sx, 1)); transform-origin: left; } }
+
+/* Lenis */
+html.lenis,
+html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* ─────────────────────────────────────────────────────────────
+   Type primitives
+   ───────────────────────────────────────────────────────────── */
+@utility t-wordmark {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  line-height: 0.78;
+  letter-spacing: -0.035em;
+}
+
+/* Archivo Black: tight, stacked, almost touching lines */
+@utility t-heavy {
+  font-family: var(--font-heavy);
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 0.86;
+  letter-spacing: -0.035em;
+}
+
+/* Barlow Condensed ExtraBold: tall poster caps */
+@utility t-condensed {
+  font-family: var(--font-condensed);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 0.86;
+  letter-spacing: -0.01em;
+}
+
+/* Bodoni Moda italic: hairline contrast; optical size follows font size */
+@utility t-serif {
+  font-family: var(--font-serif);
+  font-style: italic;
+  /* 500: Bodoni's hairlines all but vanish at 400 on the dark page */
+  font-weight: 500;
+  font-optical-sizing: auto;
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+}
+
+/* Space Mono: wide, typewriter-like labels */
+@utility t-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.6;
+}
+
+/* Interior page titles: Anton, thickened, printed in the same ivory ink as
+   the homepage wordmark. Applied per letter so split animations keep it. */
+@utility t-poster {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  line-height: 0.86;
+  letter-spacing: 0.004em;
+}
+.t-poster .split-unit,
+.t-poster.ink,
+.ink .split-unit {
+  color: transparent;
+  background: url("/images/wordmark-ink.webp") 0 0 / 22vw, var(--color-ivory);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-stroke: 0.02em var(--color-ivory);
+  paint-order: stroke fill;
+}
+
+/* Inter: navigation and interface text */
+@utility t-ui {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  letter-spacing: -0.005em;
+}
+
+@utility gutter {
+  padding-inline: var(--gutter);
+}
+
+@utility hairline {
+  border-color: var(--line);
+}
+
+/* Speckled ink — mimics worn letterpress on the big wordmark */
+@utility ink-worn {
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.09' numOctaves='4' seed='4'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -40 31.6'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.09' numOctaves='4' seed='4'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -40 31.6'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  -webkit-mask-size: 300px;
+  mask-size: 300px;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Textures
+   ───────────────────────────────────────────────────────────── */
+.grain {
+  pointer-events: none;
+  position: fixed;
+  inset: -50%;
+  z-index: 90;
+  /* Static and light: an animated grain over text flickers and tires the eyes. */
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%' height='100%' filter='url(%23g)'/></svg>");
+  mix-blend-mode: overlay;
+}
+
+@keyframes grain {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-3%, 2%); }
+  40% { transform: translate(2%, -4%); }
+  60% { transform: translate(-4%, -1%); }
+  80% { transform: translate(3%, 3%); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Large-scale paper mottling + creases under everything (static, cheap) */
+.paper {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 88;
+  opacity: 0.5;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='900' height='900'><filter id='p'><feTurbulence type='fractalNoise' baseFrequency='.004 .009' numOctaves='4' seed='2'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%' height='100%' filter='url(%23p)'/></svg>");
+  background-size: 900px;
+}
+
+.vignette {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 89;
+  background: radial-gradient(120% 90% at 50% 40%, transparent 55%, rgba(0, 0, 0, 0.55) 100%);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Landing reel (see Landing.tsx). Pure CSS so it plays from first paint.
+   Timeline (s): chrome 0 · scan 0.05–1.05 · frames develop 0.08 + 0.08·i ·
+   tagline 0.45 · exit 1.3 · tear 1.45–2.2. Skip jumps to the exit.
+   ───────────────────────────────────────────────────────────── */
+/* Motion failsafe (boot script in layout.tsx): animations failed, so show everything as-is */
+html.motion-failsafe main [data-letter],
+html.motion-failsafe main [data-portrait],
+html.motion-failsafe main [data-piece],
+html.motion-failsafe main [data-hero-fade],
+html.motion-failsafe main [data-reveal],
+html.motion-failsafe main .split-unit {
+  opacity: 1 !important;
+  visibility: visible !important;
+  clip-path: none !important;
+  transform: none !important;
+}
+
+/* Transition reel titles clip their letters while they rise (Transition.tsx) */
+.pt-label { overflow: hidden; padding-bottom: 0.06em; }
+
+.landing { display: none; }
+html.psy-landing .landing { display: block; }
+html.psy-landing body { overflow: hidden; }
+.landing { --ease-x: cubic-bezier(0.16, 1, 0.3, 1); --ease-io: cubic-bezier(0.87, 0, 0.13, 1); }
+.landing-glow { background: radial-gradient(60% 50% at 50% 46%, rgba(171, 146, 217, 0.1), transparent 70%); animation: land-glow 4s ease-in-out both; }
+.landing [data-chrome] { animation: land-fade-in 0.4s ease-out 0s both, land-fade-out 0.3s ease-in 1.35s forwards; }
+.landing [data-scan] { animation: land-scan 1s cubic-bezier(0.45, 0, 0.55, 1) 0.05s both; }
+.landing li { animation: land-frame-out 0.35s cubic-bezier(0.7, 0, 0.84, 0) calc(1.3s + var(--i) * 0.025s) forwards; }
+.landing [data-frame] { animation: land-frame 0.6s var(--ease-x) calc(0.08s + var(--i) * 0.08s) both; }
+.landing [data-develop] { animation: land-develop 0.85s var(--ease-x) calc(0.08s + var(--i) * 0.08s) both; }
+.landing [data-caption] { animation: land-caption 0.45s var(--ease-x) calc(0.3s + var(--i) * 0.05s) both; }
+.landing [data-tag] { animation: land-fade-out 0.3s ease-in 1.35s forwards; }
+.landing [data-tag] > span > span { animation: land-rise 0.7s var(--ease-x) calc(0.45s + var(--i) * 0.045s) both; }
+.landing-count > span { animation: land-count 0.6s steps(5, end) 0.1s both; }
+.landing [data-sheet] { animation: land-tear-sheet 0.75s var(--ease-io) 1.45s forwards; }
+.landing [data-under] { animation: land-tear 0.75s var(--ease-io) 1.55s forwards; }
+
+/* Skip: everything heads straight for the exit */
+html.psy-landing-skip .landing li,
+html.psy-landing-skip .landing [data-tag],
+html.psy-landing-skip .landing [data-chrome] { animation: land-fade-out 0.3s ease-in forwards; }
+html.psy-landing-skip .landing [data-sheet] { animation: land-tear-sheet 0.6s var(--ease-io) 0.05s forwards; }
+html.psy-landing-skip .landing [data-under] { animation: land-tear-skip 0.6s var(--ease-io) 0.12s forwards; }
+
+@keyframes land-glow { 0% { opacity: 0; } 40% { opacity: 1; } 100% { opacity: 0.4; } }
+@keyframes land-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes land-fade-out { to { opacity: 0; } }
+@keyframes land-scan { from { transform: translateX(-100%); opacity: 1; } 90% { opacity: 1; } to { transform: translateX(1100%); opacity: 0; } }
+@keyframes land-frame { from { clip-path: inset(100% 0% 0% 0%); transform: translateY(26px); } to { clip-path: inset(0% 0% 0% 0%); transform: none; } }
+@keyframes land-develop { from { transform: scale(1.28); filter: brightness(2.4) contrast(0.55) blur(4px); } to { transform: scale(1); filter: none; } }
+@keyframes land-caption { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes land-rise { from { transform: translateY(110%) rotate(3deg); } to { transform: none; } }
+@keyframes land-count { from { transform: translateY(0); } to { transform: translateY(-83.333%); } }
+@keyframes land-frame-out { to { transform: translateY(-40px); opacity: 0; } }
+@keyframes land-tear-sheet { to { transform: translateY(-108%); } }
+@keyframes land-tear { to { transform: translateY(-108%); } }
+@keyframes land-tear-skip { to { transform: translateY(-108%); } }
+
+/* Homepage only (see PrintSurface): static print grain anchored to the page.
+   Sparse bright grains, screen-blended, so blacks stay deep. */
+.print-grain {
+  opacity: 0.07;
+  mix-blend-mode: screen;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='373' height='373'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='.95' numOctaves='2' seed='11' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/><feComponentTransfer><feFuncR type='gamma' amplitude='1.5' exponent='7'/><feFuncG type='gamma' amplitude='1.5' exponent='7'/><feFuncB type='gamma' amplitude='1.5' exponent='7'/></feComponentTransfer></filter><rect width='100%' height='100%' filter='url(%23g)'/></svg>");
+  background-size: 373px;
+}
+
+/* Even, print-like light on the homepage instead of darkened screen edges */
+body:has(.print-surface) .vignette {
+  opacity: 0.4;
+}
+
+/* Faint dust/scratches on dark sections */
+.dust {
+  background-image:
+    radial-gradient(1px 1px at 12% 18%, rgba(236, 229, 216, 0.25) 50%, transparent 51%),
+    radial-gradient(1px 1px at 72% 64%, rgba(236, 229, 216, 0.18) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 38% 82%, rgba(236, 229, 216, 0.14) 50%, transparent 51%),
+    radial-gradient(1px 1px at 88% 12%, rgba(236, 229, 216, 0.2) 50%, transparent 51%);
+  background-size: 420px 380px;
+}
+
+/* Monochrome photo treatment for supplied images */
+.photo-mono {
+  filter: grayscale(1) contrast(1.12) brightness(0.92);
+}
+
+/* Lavender duotone on hover (applied to a wrapper) */
+.duotone-hover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-lav);
+  mix-blend-mode: color;
+  opacity: 0;
+  transition: opacity 0.6s var(--ease-expo);
+  pointer-events: none;
+}
+.group:hover .duotone-hover::after,
+.group:focus-visible .duotone-hover::after {
+  opacity: 0.85;
+}
+
+/* Marquee */
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee 38s linear infinite;
+}
+
+/* Slow drift for decorative fragments (CSS-only, cheap) */
+@keyframes drift {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(var(--r, 0deg)); }
+  50% { transform: translate3d(0, -10px, 0) rotate(calc(var(--r, 0deg) + 2deg)); }
+}
+.drift { animation: drift 9s ease-in-out infinite; }
+
+@keyframes twinkle {
+  0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
+  50% { opacity: 0.45; transform: scale(0.8) rotate(20deg); }
+}
+.twinkle { animation: twinkle 4.5s ease-in-out infinite; }
+
+/* Resting equaliser: a slow breath so the player never looks dead */
+@keyframes eq-idle {
+  0%, 100% { transform: scaleY(0.22); }
+  50% { transform: scaleY(0.75); }
+}
+.eq-idle { animation: eq-idle 2s ease-in-out infinite; }
+
+/* Vinyl on /music: always mounted, paused unless audio is playing */
+@keyframes vinyl-spin { to { transform: rotate(360deg); } }
+.vinyl-spin { animation: vinyl-spin 1.8s linear infinite; }
+
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+.spin-slow { animation: spin-slow 14s linear infinite; }
+
+/* Elements that GSAP will reveal start hidden only when JS + motion are on */
+html.js-motion [data-reveal],
+html.js-motion [data-split] .split-unit,
+html.js-motion [data-letter],
+html.js-motion [data-portrait],
+html.js-motion [data-piece],
+html.js-motion [data-tagline] .split-unit,
+html.js-motion [data-hero-fade] {
+  visibility: hidden;
+}
+
+/* Range input used by the audio player */
+.psy-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 18px;
+  background: transparent;
+  --p: 0%;
+}
+.psy-range::-webkit-slider-runnable-track {
+  height: 2px;
+  background: linear-gradient(to right, var(--color-ivory) var(--p), rgba(236, 229, 216, 0.22) var(--p));
+}
+.psy-range::-moz-range-track {
+  height: 2px;
+  background: linear-gradient(to right, var(--color-ivory) var(--p), rgba(236, 229, 216, 0.22) var(--p));
+}
+.psy-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  margin-top: -5px;
+  border-radius: 999px;
+  background: var(--color-ivory);
+  box-shadow: 0 0 0 4px rgba(171, 146, 217, 0.35);
+}
+.psy-range::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--color-ivory);
+  box-shadow: 0 0 0 4px rgba(171, 146, 217, 0.35);
+}
+.psy-range:disabled { opacity: 0.35; }
+
+/* Text fields keep the native I-beam (the custom cursor hides over them). */
+html.has-cursor :is(textarea, [contenteditable], input:not([type="radio"], [type="checkbox"], [type="submit"], [type="button"], [type="range"], [type="file"])) { cursor: text !important; }
+html.has-cursor select { cursor: pointer !important; }
+
+.split-line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.06em;
+  margin-bottom: -0.06em;
+}
+.split-unit {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* Editorial reading */
+.prose-psy {
+  font-family: var(--font-read);
+  font-size: clamp(1.125rem, 1.05rem + 0.35vw, 1.3rem);
+  line-height: 1.72;
+  color: rgba(236, 229, 216, 0.88);
+}
+.prose-psy p + p { margin-top: 1.35em; }
+.prose-psy h2 {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 2.2em;
+  line-height: 1;
+  color: var(--color-ivory);
+  margin: 1.6em 0 0.6em;
+}
+.prose-psy blockquote {
+  margin: 2em 0;
+  padding-left: 1.2em;
+  border-left: 2px solid var(--color-lav);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.5em;
+  line-height: 1.25;
+  color: var(--color-lav-soft);
+}
+.prose-psy .verse {
+  white-space: pre-line;
+  font-style: italic;
+  margin: 1.8em 0;
+}
+.prose-psy > p:first-of-type:not(.verse)::first-letter {
+  font-family: var(--font-display);
+  float: left;
+  font-size: 4.4em;
+  line-height: 0.82;
+  padding: 0.08em 0.12em 0 0;
+  color: var(--color-lav);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grain, .marquee-track, .drift, .twinkle, .spin-slow, .eq-idle, .vinyl-spin { animation: none !important; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; }
+}
+
+/* Hide native cursor only when the custom one is active */
+html.has-cursor, html.has-cursor * { cursor: none !important; }

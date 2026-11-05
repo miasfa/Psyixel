@@ -1,0 +1,158 @@
+{
+  "preview_assets": [
+    {
+      "slot": "world-words",
+      "filename": "world-words.png",
+      "dimensions": [
+        1600,
+        1000
+      ],
+      "transparent": false,
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "source": "generated original artwork",
+      "review_status": "NOT IMPORTED, MUST PREVIEW"
+    },
+    {
+      "slot": "world-music",
+      "filename": "world-music.png",
+      "dimensions": [
+        1600,
+        1000
+      ],
+      "transparent": false,
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "source": "generated original artwork",
+      "review_status": "NOT IMPORTED, MUST PREVIEW"
+    },
+    {
+      "slot": "world-photography",
+      "filename": "world-photography.png",
+      "dimensions": [
+        1600,
+        1000
+      ],
+      "transparent": false,
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "source": "composite from previously created 1024px portrait",
+      "review_status": "NOT IMPORTED, MUST PREVIEW"
+    },
+    {
+      "slot": "studio-hero-collage",
+      "filename": "studio-hero-collage.png",
+      "dimensions": [
+        2760,
+        1644
+      ],
+      "transparent": true,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source": "generated original artwork",
+      "review_status": "NOT IMPORTED, MUST PREVIEW"
+    },
+    {
+      "slot": "art-hero-brush",
+      "filename": "art-hero-brush.png",
+      "dimensions": [
+        2760,
+        1524
+      ],
+      "transparent": true,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source": "generated original artwork",
+      "review_status": "NOT IMPORTED, MUST PREVIEW"
+    },
+    {
+      "slot": "world-studio",
+      "filename": "world-studio.png",
+      "dimensions": [
+        1600,
+        1000
+      ],
+      "transparent": false,
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "source": "generated original artwork",
+      "review_status": "NOT IMPORTED, MUST PREVIEW"
+    },
+    {
+      "slot": "world-art",
+      "filename": "world-art.png",
+      "dimensions": [
+        1600,
+        1000
+      ],
+      "transparent": false,
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "source": "generated original artwork",
+      "review_status": "NOT IMPORTED, MUST PREVIEW"
+    },
+    {
+      "slot": "rock",
+      "filename": "rock.png",
+      "dimensions": [
+        900,
+        1225
+      ],
+      "transparent": true,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source": "generated original artwork",
+      "review_status": "NOT IMPORTED, MUST PREVIEW"
+    }
+  ],
+  "rejected_experiments": [
+    {
+      "name": "moon.png",
+      "dims": [
+        1200,
+        1293
+      ],
+      "status": "EXPERIMENTAL; not a realistic photographic replacement"
+    },
+    {
+      "name": "contact-hero-rock.png",
+      "dims": [
+        1400,
+        1282
+      ],
+      "status": "EXPERIMENTAL; not a realistic photographic replacement"
+    },
+    {
+      "name": "about-moon.png",
+      "dims": [
+        1200,
+        1070
+      ],
+      "status": "EXPERIMENTAL; not a realistic photographic replacement"
+    },
+    {
+      "name": "contact-rock.png",
+      "dims": [
+        1200,
+        1067
+      ],
+      "status": "EXPERIMENTAL; not a realistic photographic replacement"
+    }
+  ]
+}
