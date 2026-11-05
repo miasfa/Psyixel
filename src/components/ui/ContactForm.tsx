@@ -16,6 +16,13 @@ type Status =
   /** `unsent`: delivery failed or isn't set up — the visitor is offered the email link. */
   | { kind: "error"; message: string; unsent?: boolean };
 
+/**
+ * Web3Forms (https://web3forms.com) access key. When set, messages go through
+ * Web3Forms, which emails them to the owner; otherwise the form uses /api/contact.
+ * The key is public by design (it only allows submitting to that inbox).
+ */
+const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
+
 const field =
   "w-full border-0 border-b border-[var(--line-strong)] bg-transparent px-0 py-3 font-read text-xl text-ivory placeholder:text-dust focus:border-lav focus:outline-none focus:ring-0";
 
@@ -44,11 +51,48 @@ export function ContactForm({ initialTopic, fallbackEmail }: { initialTopic?: st
     return () => window.removeEventListener("psy:topic", onTopic);
   }, []);
 
+  async function sendViaWeb3Forms(form: HTMLFormElement, data: Record<string, FormDataEntryValue>) {
+    // Honeypot filled: a bot. Pretend it worked and drop it.
+    if (String(data.company ?? "").trim()) {
+      setStatus({ kind: "sent" });
+      return;
+    }
+    const topicLabel = TOPICS.find((t) => t.value === data.topic)?.label ?? "A question";
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: `Psyixel: ${topicLabel} from ${data.name}`,
+          from_name: "Psyixel website",
+          name: data.name,
+          email: data.email,
+          topic: topicLabel,
+          message: data.message,
+        }),
+      });
+      const json = (await res.json().catch(() => ({}))) as { success?: boolean };
+      if (res.ok && json.success) {
+        setStatus({ kind: "sent" });
+        form.reset();
+      } else {
+        setStatus({ kind: "error", unsent: true, message: "Your message was not sent. Please try again." });
+      }
+    } catch {
+      setStatus({ kind: "error", unsent: true, message: "Your message was not sent. Please check your connection and try again." });
+    }
+  }
+
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
     const data = Object.fromEntries(new FormData(form));
     setStatus({ kind: "sending" });
+    if (WEB3FORMS_KEY) {
+      await sendViaWeb3Forms(form, data);
+      return;
+    }
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
