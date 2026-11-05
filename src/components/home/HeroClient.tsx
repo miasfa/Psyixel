@@ -216,8 +216,7 @@ export function HeroClient({ assets, portrait, alts }: { assets: HeroAssets; por
         </div>
       </div>
 
-      {/* the iris file has a flat bottom edge (hidden by the torn rule on desktop); on phones it fades out instead */}
-      <div data-scroll="iris" className={`${PLACED} z-30 max-md:[mask-image:linear-gradient(to_bottom,#000_62%,transparent_96%)] max-md:[-webkit-mask-image:linear-gradient(to_bottom,#000_62%,transparent_96%)]`} style={placementVars(slots.iris.mobile, slots.iris.desktop)}>
+      <div data-scroll="iris" className={`${PLACED} z-30`} style={placementVars(slots.iris.mobile, slots.iris.desktop)}>
         <div data-depth="1.6">
           <div data-piece>
             <CollageCutout asset={assets.iris} alt={alts.iris} sizes="(max-width: 768px) 74vw, 36vw" fallback={<FlowerCut className="w-full drop-shadow-[0_30px_40px_rgba(0,0,0,0.65)]" rotate={-22} />} />
@@ -255,6 +254,10 @@ export function HeroClient({ assets, portrait, alts }: { assets: HeroAssets; por
           <Sparkle size={40} className="twinkle" />
         </div>
       </div>
+
+      {/* Phones: the iris file ends in a flat edge (on desktop the torn rule covers it), so the
+          flower and portrait sink together into the page colour before the tagline. */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 top-[128vw] z-[35] bg-[linear-gradient(to_bottom,transparent_0,rgba(12,11,13,0.7)_10vw,#0c0b0d_19vw)] md:hidden" />
 
       {/* ── Tagline ── */}
       <div data-scroll="tagline" className="gutter relative z-40 mt-[149vw] pb-16 md:absolute md:right-[8.5%] md:top-[28vw] md:mt-0 md:w-[24vw] md:p-0 md:text-center">
