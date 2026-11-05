@@ -81,8 +81,6 @@ export const collections: PhotoCollection[] = [
       photo("up-close/01", "A red squirrel on a tree trunk holding a green walnut", "l"),
       photo("up-close/02", "Four kumquats in an open palm above a garden"),
       photo("up-close/03", "Raindrops on a window, a field blurred behind them"),
-      photo("up-close/04", "Kumquats in an open palm, with the words: A steady hand does not require a hardened heart"),
-      photo("up-close/05", "Three kumquats passed between two cupped hands in warm light"),
     ],
   },
 ];
