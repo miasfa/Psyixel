@@ -41,13 +41,30 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = { themeColor: "#0c0b0d" };
 
+/** schema.org data for search engines: the site and the creator behind it, with official profiles. */
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "WebSite", "@id": `${site.url}/#website`, name: site.name, url: site.url, description: site.description, inLanguage: "en" },
+    {
+      "@type": "Organization",
+      "@id": `${site.url}/#psyixel`,
+      name: site.name,
+      url: site.url,
+      email: site.email || undefined,
+      logo: `${site.url}/icon.svg`,
+      sameAs: site.socials.map((s) => s.href),
+    },
+  ],
+};
+
 // Hides reveal targets before first paint (only when JS runs and motion is allowed),
 // and un-hides everything if the motion layer hasn't started within 3.5s.
 // Also marks a homepage visit's first load of the session for the landing reel (see Landing.tsx);
 // the reel itself is CSS; if it somehow hasn't handed off within 5s the page is shown anyway.
 // Failsafe: if content in view is still hidden 6.5s after load and no animation ever touched it
 // (no inline styles from GSAP, so motion failed to start), it is forced visible.
-const motionBoot = `(function(){var d=document.documentElement;if(!matchMedia('(prefers-reduced-motion: reduce)').matches){d.classList.add('js-motion');setTimeout(function(){if(!window.__psyMotionReady)d.classList.remove('js-motion')},3500);setTimeout(function(){var s='[data-letter],[data-portrait],[data-piece],[data-hero-fade],[data-reveal],[data-tagline] .split-unit,[data-split] .split-unit',l=document.querySelectorAll(s);for(var i=0;i<l.length;i++){var r=l[i].getBoundingClientRect();if(r.width&&r.top<innerHeight*0.8&&r.bottom>0&&!l[i].style.opacity&&!l[i].style.visibility){var c=getComputedStyle(l[i]);if(c.visibility==='hidden'||parseFloat(c.opacity)<0.05){d.classList.add('motion-failsafe');break}}}},6500);try{if(location.pathname==='/'&&!sessionStorage.getItem('psy-landed')){d.classList.add('psy-landing');setTimeout(function(){if(d.classList.contains('psy-landing')){d.classList.remove('psy-landing');try{sessionStorage.setItem('psy-landed','1')}catch(e){}window.dispatchEvent(new Event('psy:landed'))}},5000)}}catch(e){}}})();`;
+const motionBoot =`(function(){var d=document.documentElement;if(!matchMedia('(prefers-reduced-motion: reduce)').matches){d.classList.add('js-motion');setTimeout(function(){if(!window.__psyMotionReady)d.classList.remove('js-motion')},3500);setTimeout(function(){var s='[data-letter],[data-portrait],[data-piece],[data-hero-fade],[data-reveal],[data-tagline] .split-unit,[data-split] .split-unit',l=document.querySelectorAll(s);for(var i=0;i<l.length;i++){var r=l[i].getBoundingClientRect();if(r.width&&r.top<innerHeight*0.8&&r.bottom>0&&!l[i].style.opacity&&!l[i].style.visibility){var c=getComputedStyle(l[i]);if(c.visibility==='hidden'||parseFloat(c.opacity)<0.05){d.classList.add('motion-failsafe');break}}}},6500);try{if(location.pathname==='/'&&!sessionStorage.getItem('psy-landed')){d.classList.add('psy-landing');setTimeout(function(){if(d.classList.contains('psy-landing')){d.classList.remove('psy-landing');try{sessionStorage.setItem('psy-landed','1')}catch(e){}window.dispatchEvent(new Event('psy:landed'))}},5000)}}catch(e){}}})();`;
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const menuFlower = await findCollageAsset("iris");
@@ -59,6 +76,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: motionBoot }} />
+        {/* Structured data: tells search engines the site's name and its official profiles. */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       </head>
       <body>
         <SvgDefs />
