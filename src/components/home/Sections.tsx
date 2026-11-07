@@ -7,6 +7,7 @@ import { TLink } from "@/components/motion/TLink";
 import { FeaturePlayer } from "@/components/music/Players";
 import { Arrow, ArrowLink, Index } from "@/components/ui/Bits";
 import { archive, site, worlds } from "@/content";
+import { humanArchive } from "@/content/experiments";
 import { collagePlate, findCollageAsset } from "@/lib/collage";
 import { CollageCutout } from "@/components/art/CollageCutout";
 
@@ -169,6 +170,48 @@ export function Worlds() {
           </li>
         ))}
       </ul>
+    </section>
+  );
+}
+
+/* ── Experiment: The Human Archive ──────────────────────────── */
+
+/** A still, deterministic star field (same on server and client), echoing the archive's sky. */
+const ARCHIVE_STARS = (() => {
+  let s = 1979;
+  const rand = () => ((s = (s * 16807) % 2147483647) - 1) / 2147483646;
+  return Array.from({ length: 70 }, () => ({ x: rand() * 100, y: rand() * 100, r: rand() > 0.9 ? 1.4 : 0.6 + rand() * 0.5, o: 0.25 + rand() * 0.5 }));
+})();
+
+export function HumanArchiveFeature() {
+  return (
+    <section aria-labelledby="human-archive-title" className="gutter relative py-12 lg:py-[3vw]">
+      <a
+        href={humanArchive.href}
+        data-cursor="Enter"
+        className="group relative block overflow-hidden border border-ivory/25 bg-[#060609] px-6 py-12 transition-colors duration-500 hover:border-lav sm:px-10 lg:px-[4vw] lg:py-[5vw]"
+      >
+        <svg aria-hidden="true" className="pointer-events-none absolute inset-0 h-full w-full" preserveAspectRatio="none">
+          {ARCHIVE_STARS.map((st, i) => (
+            <circle key={i} cx={`${st.x}%`} cy={`${st.y}%`} r={st.r} fill="#ece5d8" opacity={st.o} />
+          ))}
+        </svg>
+        {/* the one light that gets chosen */}
+        <span aria-hidden="true" className="absolute right-[18%] top-[30%] block size-2 rounded-full bg-[#efcd94] shadow-[0_0_18px_6px_rgba(239,205,148,0.45)] transition-transform duration-700 ease-[var(--ease-expo)] group-hover:scale-150" />
+
+        <div className="relative max-w-[44rem]">
+          <p className="t-label text-ivory/70">// {humanArchive.kicker}</p>
+          <h2 id="human-archive-title" className="t-serif mt-3 text-[13vw] uppercase leading-[0.9] transition-colors duration-500 group-hover:text-lav sm:text-[8vw] lg:text-[5vw]">
+            {humanArchive.title}
+          </h2>
+          <p className="t-serif mt-4 max-w-[32rem] text-xl leading-snug text-ivory/85 lg:text-[1.5vw]">{humanArchive.line}</p>
+          <p className="t-label mt-5 max-w-[30rem] text-[0.75rem] leading-[1.7] text-ivory/60">{humanArchive.note}</p>
+          <p className="t-label mt-8 inline-flex items-center gap-3 text-ivory transition-colors group-hover:text-lav">
+            {humanArchive.cta}
+            <Arrow className="transition-transform duration-500 group-hover:translate-x-1.5" />
+          </p>
+        </div>
+      </a>
     </section>
   );
 }
