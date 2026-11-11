@@ -24,7 +24,7 @@ _Audited 4 Nov 2026 across every page and detail route at 1440px, 1920px and 375
 | 1 | `collage/portrait.webp` | Home hero figure | 1086×1448 | **1086px** | yes | 886 / 1181 / 263 | 2362px | 46% | Your supplied image |
 | 2 | `collage/eye.webp` | Home hero eye | 324×396 | **162px** | yes | 237 / 316 / 120 | 632px | 26% | Homepage reference crop (977px mockup), 2× Lanczos |
 | 3 | `collage/iris.webp` | Home hero iris | 2000×1148 | **2000px** | yes | 505 / 673 / 278 | 1346px | ✅ 149% | Your supplied image |
-| 4 | `collage/moon.webp` | Home hero moon | 360×388 | **180px** | yes | 263 / 351 / 143 | 702px | 26% | Homepage reference crop (977px mockup), 2× Lanczos |
+| 4 | `collage/moon.webp` | Home hero moon | 1200×1293 | **~900px** | yes | 263 / 351 / 143 | 702px | ✅ 128% | **Replaced 11 Nov**: a torn black-and-white print made from the owner's own photo (`photography/sky-notes/02`), paper border and torn edge drawn in code. Old file in `assets/collage-backup-2026-11-11/` |
 | 5 | `collage/rock.webp` | Home hero rock | 900×1225 | **900px** | yes | 174 / 232 / 113 | 464px | ✅ 194% | **Replaced 4 Nov** with batch 01 `rock.png`: AI-generated original, downscaled from 1075×1463. Old file in `assets/placeholders/` + `assets/originals-backup-2026-11-04/` |
 | 6 | `collage/studio-hero-collage.webp` | Studio hero collage | 1624×968 | **1624px** | yes | 920 / 1227 / 416 | 2454px | 66% | **Replaced 4 Nov** with a newly generated image at its native size (not enlarged). Better detail, but below the 2760px target. Clean alpha edges on dark. Its paper tail reaches further left than before, so the tagline and intro now sit above the collage (z-10, with a soft dark text shadow). Old file in `assets/header-backup-2026-11-04-before-regen/` |
 | 7 | `collage/art-hero-brush.webp` | Art hero brush | 1688×932 | **1688px** | yes | 920 / 1227 / 375 | 2454px | 69% | **Replaced 4 Nov** with a newly generated image at its native size (not enlarged). Better detail, but below the 2760px target. No visible halo on dark; a very faint magenta fringe shows only when alpha is amplified 8×. Old file in `assets/header-backup-2026-11-04-before-regen/` |
@@ -40,7 +40,7 @@ _Audited 4 Nov 2026 across every page and detail route at 1440px, 1920px and 375
 | 17 | `works/the-second-nature.webp` | Home archive + Art gallery | 294×230 | **147px** | no | 532 / 709 / 336 | 1418px | 10% | Homepage reference crop (977px mockup), 2× Lanczos |
 | 18 | `collage/studio-paper.webp` | Studio project | 940×980 | **470px** | no | 533 / 711 / 337 | 1422px | 33% | Concept screenshot crop, 2× Lanczos |
 | 19 | `collage/contact-horizon.webp` | Contact framed photo | 1600×1266 | **1600px** | no | 463 / 617 / 334 | 1234px | ✅ 130% | **Replaced 4 Nov** (batch 02) |
-| 20 | `collage/contact-hero-rock.webp` | Contact rock | 804×736 | **402px** | yes | 426 / 568 / 240 | 1136px | 35% | Concept screenshot crop, 2× Lanczos |
+| 20 | `collage/contact-hero-rock.webp` | Contact rock | 780×714 | **780px** | yes | 346 / 461 / hidden | 922px | 85% | **Replaced 11 Nov**: cut at native size from the high-resolution hero `rock.webp` (not enlarged). Old file in `assets/collage-backup-2026-11-11/` |
 | 21 | `collage/about-hero-moon.webp` | About moon | 690×584 | **345px** | yes | 346 / 461 / 206 | 922px | 37% | Concept screenshot crop, 2× Lanczos |
 | 22 | `collage/manifesto-collage.webp` | Home 01 manifesto collage | 734×436 | **367px** | yes | 541 / 721 / 343 | 1442px | 25% | Homepage reference crop (977px mockup), 2× Lanczos |
 | 23 | `collage/about-collage.webp` | Home 03 about + /art/marble-study | 2000×1168 | **2000px** | yes | 555 / 740 / 375 | 1480px | ✅ 135% | **Replaced 4 Nov** (batch 02), real alpha, clean edges |
@@ -54,7 +54,7 @@ _Audited 4 Nov 2026 across every page and detail route at 1440px, 1920px and 375
 | 31 | `works/red-moon-variations.webp` | Home archive + Music | 298×230 | **149px** | no | 258 / 344 / 318 | 688px | 22% | Homepage reference crop (977px mockup), 2× Lanczos |
 | 32 | `works/fragments-vol-1.webp` | Home archive + Music | 326×230 | **163px** | no | 237 / 316 / 167 | 632px | 26% | Homepage reference crop (977px mockup), 2× Lanczos |
 | 33 | `collage/about-moon.webp` | Home 03 about moon | 314×280 | **157px** | yes | 230 / 307 / 192 | 614px | 26% | Homepage reference crop (977px mockup), 2× Lanczos |
-| 34 | `collage/contact-rock.webp` | Home get-in-touch rock | 324×288 | **162px** | yes | 239 / 319 / hidden | 638px | 25% | Homepage reference crop (977px mockup), 2× Lanczos |
+| 34 | `collage/contact-rock.webp` | Home get-in-touch rock | 760×676 | **760px** | yes | 239 / 319 / hidden | 638px | ✅ 119% | **Replaced 11 Nov**: cut at native size from the high-resolution hero `rock.webp` (not enlarged). Old file in `assets/collage-backup-2026-11-11/` |
 
 **Not raster, already sharp at any density:**
 - The wordmark: inline SVG paths, plus a 512px ink texture tile that repeats.
