@@ -179,13 +179,13 @@ export default async function StudioPage() {
         </div>
 
         {studioProjects.length > 0 ? (
-          <ul className="mt-12 grid gap-10 md:grid-cols-3 md:gap-[1.6vw]">
+          <ul className={`mt-12 grid gap-10 md:gap-[1.6vw] ${studioProjects.length % 3 === 0 ? "md:grid-cols-3" : "md:grid-cols-2"}`}>
             {studioProjects.map((p, i) => (
               <li key={p.slug} id={p.slug} className="flex" data-reveal="up" data-delay={String(i * 0.12)}>
                 <TLink href={`/studio/${p.slug}`} transitionLabel={p.title} data-cursor="View" className="group flex w-full flex-col border border-ivory/25 bg-coal/60 p-[0.6vw] transition-colors duration-500 hover:border-lav/70">
                   <div className="relative aspect-[16/10] overflow-hidden">
                     <div className="duotone-hover absolute inset-0 transition-transform duration-[1.4s] ease-[var(--ease-expo)] group-hover:scale-[1.05]">
-                      <Plate image={p.cover} className="h-full w-full" sizes="(max-width: 768px) 100vw, 33vw" />
+                      <Plate image={p.cover} className="h-full w-full" sizes="(max-width: 768px) 100vw, 50vw" />
                     </div>
                   </div>
                   <div className="flex flex-1 items-start justify-between gap-4 px-2 pb-2 pt-5">

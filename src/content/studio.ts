@@ -56,6 +56,7 @@ export const studioFocus = [
 const D = "/images/studio/dalian-dawody";
 const C = "/images/studio/carlstad-korcenter";
 const P = "/images/studio/psyixel";
+const H = "/images/studio/human-archive";
 
 export const studioProjects: StudioProject[] = [
   {
@@ -151,5 +152,37 @@ export const studioProjects: StudioProject[] = [
     url: "/",
     urlLabel: "Back to the homepage",
     cover: { src: `${P}/cover.webp?v=2`, mono: false, variant: "fabric", alt: "A three-by-three board of Psyixel pages: home, Studio, Photography, Art, Words, Music, the five sections, About and Contact" },
+  },
+  {
+    slug: "the-human-archive",
+    title: "The Human Archive",
+    client: "Self-initiated",
+    disciplines: ["Web design", "Development", "Interactive"],
+    summary: "An anonymous museum of human experience. Each memory someone leaves becomes a light in a night sky that anyone can wander through and read.",
+    role: "Design & Development",
+    problem: [
+      "The Human Archive is a Psyixel experiment, currently a prototype. It gives people somewhere to leave something they have been carrying, without an account, a name or an email address.",
+      "The site has four parts: the sky itself, a text catalogue of every memory, a three-step page for leaving a trace, and a page for taking one back.",
+    ],
+    screenshots: [
+      { src: `${H}/01-memory.webp`, mono: false, variant: "fabric", alt: "A memory open beneath its star, titled Other Lives", caption: "Reading a memory: the text sits under its own light, with its constellation and position in the sky." },
+      { src: `${H}/02-catalogue.webp`, mono: false, variant: "fabric", alt: "The Catalogue page listing the five constellations", caption: "The Catalogue: every light written down, for reading in order or without the stars." },
+      { src: `${H}/03-trace.webp`, mono: false, variant: "fabric", alt: "Leave a trace page with three steps and five constellations to choose from", caption: "Leaving a trace in three steps: choose, write, release." },
+      { src: `${H}/04-withdraw.webp`, mono: false, variant: "fabric", alt: "Withdraw a trace page with a field for a withdrawal code", caption: "Taking something back with a withdrawal code, no reason needed." },
+      { src: `${H}/05-mobile.webp`, mono: false, variant: "fabric", alt: "Three mobile screens of The Human Archive", caption: "On mobile: the sky, the Catalogue and Leave a trace." },
+    ],
+    decisions: [
+      "The sky is the interface. Each memory is a light you can click or drag towards, grouped into five constellations: Things Never Said, Moments That Stayed, Other Lives, The Ones We Lost and Reasons to Stay.",
+      "Anonymous by design: no account, no name and no email. A person reads every trace before it becomes a light.",
+      "Anyone can withdraw what they left, using a code given when they leave it. The site does not keep a way to look that code up.",
+      "A text catalogue lists every memory for people who prefer to read without the stars, and the lights can be reached with the keyboard.",
+      "Each constellation asks one question, so the page for leaving a trace starts with a prompt, not an empty box.",
+    ],
+    result: [
+      "A live prototype at archive.psyixel.com, linked from the Psyixel homepage, where people can read memories, leave their own and take them back.",
+    ],
+    url: "https://archive.psyixel.com",
+    urlLabel: "Enter the sky",
+    cover: { src: `${H}/cover.webp`, mono: false, variant: "fabric", alt: "The Human Archive home page: a dark night sky with a single bright light and the line One light so far" },
   },
 ];
