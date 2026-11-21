@@ -57,6 +57,7 @@ const D = "/images/studio/dalian-dawody";
 const C = "/images/studio/carlstad-korcenter";
 const P = "/images/studio/psyixel";
 const H = "/images/studio/human-archive";
+const N = "/images/studio/nova-aesthetic-clinic";
 
 export const studioProjects: StudioProject[] = [
   {
@@ -120,6 +121,35 @@ export const studioProjects: StudioProject[] = [
     ],
     url: "https://carlstadkorcenter.se",
     cover: { src: `${C}/cover.webp`, mono: false, variant: "fabric", alt: "Two mobile screens of the Carlstad Körcenter website on navy" },
+  },
+  {
+    slug: "nova-aesthetic-clinic",
+    title: "Nova Aesthetic Clinic",
+    client: "Dr. Majdi Amro · Nova Aesthetic Clinic",
+    disciplines: ["Web design", "Development"],
+    summary: "A bilingual one-page website for Dr. Majdi Amro’s aesthetic clinic in Hebron, in English and Arabic, built around five treatments and booking on WhatsApp.",
+    role: "Design & Development",
+    problem: [
+      "Nova Aesthetic Clinic offers non-surgical aesthetic medicine in Hebron: Botox, dermal fillers, facial contouring, skin rejuvenation and medical skin care.",
+      "The site needed to explain each treatment clearly, work in both English and Arabic, and make it easy to book a consultation on WhatsApp.",
+    ],
+    screenshots: [
+      { src: `${N}/01-treatment.webp`, mono: false, variant: "fabric", alt: "The Botox treatment panel open beside the home page", caption: "Each treatment opens in a side panel with what it treats, session time and how long results last." },
+      { src: `${N}/02-arabic.webp`, mono: false, variant: "fabric", alt: "The home page in Arabic, laid out right to left", caption: "The Arabic version, with the whole layout mirrored right to left." },
+      { src: `${N}/03-mobile.webp`, mono: false, variant: "fabric", alt: "Two mobile screens of the Nova Aesthetic Clinic website", caption: "On mobile: the home page and a treatment panel." },
+    ],
+    decisions: [
+      "Everything on one page. About, Treatments, Results and Contact open in a single side panel, so visitors never lose their place.",
+      "English and Arabic, switched from the header. The Arabic version has its own typefaces and a full right-to-left layout.",
+      "The five treatments sit as a quiet row along the bottom of the first screen, each opening its own details.",
+      "Booking goes straight to WhatsApp. Visitors can tap the concerns they want to ask about and they are added to the message.",
+      "Deep navy, ivory and a soft gold, with a classic serif for headlines, to feel calm and medical rather than loud.",
+    ],
+    result: [
+      "A live bilingual website with the clinic’s treatments, a results policy, contact details and booking through WhatsApp.",
+    ],
+    url: "https://nova-aesthetic-clinic.vercel.app",
+    cover: { src: `${N}/cover.webp`, mono: false, variant: "fabric", alt: "Nova Aesthetic Clinic home page: the headline Aesthetic medicine, with a light hand beside a portrait" },
   },
   {
     slug: "psyixel",

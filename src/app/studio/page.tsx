@@ -179,7 +179,7 @@ export default async function StudioPage() {
         </div>
 
         {studioProjects.length > 0 ? (
-          <ul className={`mt-12 grid gap-10 md:gap-[1.6vw] ${studioProjects.length % 3 === 0 ? "md:grid-cols-3" : "md:grid-cols-2"}`}>
+          <ul className={`mt-12 grid gap-10 md:gap-[1.6vw] ${studioProjects.length === 4 ? "md:grid-cols-2" : "md:grid-cols-3"}`}>
             {studioProjects.map((p, i) => (
               <li key={p.slug} id={p.slug} className="flex" data-reveal="up" data-delay={String(i * 0.12)}>
                 <TLink href={`/studio/${p.slug}`} transitionLabel={p.title} data-cursor="View" className="group flex w-full flex-col border border-ivory/25 bg-coal/60 p-[0.6vw] transition-colors duration-500 hover:border-lav/70">

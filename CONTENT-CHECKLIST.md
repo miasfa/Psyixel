@@ -16,7 +16,7 @@
 
 | Where | Entry | What it needs |
 |---|---|---|
-| `src/content/studio.ts` → `studioProjects` | ✅ **Real projects added:** Dalian Dawody, Carlstad Körcenter, Psyixel, The Human Archive. Samples removed. | Still open: project years, and any extra work to credit (photography, logo, copywriting). |
+| `src/content/studio.ts` → `studioProjects` | ✅ **Real projects added:** Dalian Dawody, Carlstad Körcenter, Nova Aesthetic Clinic, Psyixel, The Human Archive. Samples removed. | Still open: project years, and any extra work to credit (photography, logo, copywriting). |
 | `src/content/photography.ts` → `collections` | ✅ **Real photos added:** Sky Notes, Water Lines, After Dark, Up Close (15 photos). The 3 sample collections remain, hidden from production. | Optional: a one-line poem or intro per collection, captions. Add photos to `public/images/photography/<collection>/` and list them with `photo(...)`. |
 | `src/content/art.ts` → `artworks` | ✅ **Real digital works added (6).** Samples removed. | Still open: real titles (current ones are working titles), years, and an optional statement per work. |
 | `src/content/words.ts` → `writings` | The Second Nature, A Quiet Exit, On Attention, Fragments Vol. I | Your writing, a real date, kind (Essay / Poem / Reflection) and excerpt. The sample bodies still contain editing notes such as "Replace this entry in src/content/words.ts…". |
